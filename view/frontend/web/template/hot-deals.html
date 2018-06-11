@@ -1,0 +1,47 @@
+<!--
+/**
+ * GiaPhuGroup Co., Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_HotDeals
+ * @copyright   Copyright (c) 2018-2019 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
+ */
+-->
+<li id="hot_deals" data-bind="fadeVisible: isVisible" class="hot_deals">
+    <div class="step-title" data-bind="i18n: 'Hot Deals'" data-role="title"></div>
+    <div id="checkout-step-title"
+         class="step-content"
+         data-role="content">
+        <br/>
+        <form data-bind="submit: addToCart" novalidate="novalidate" class="form">
+            <div class="hot-deals" data-bind="foreach: getProductsList()">
+                <p>
+                    <input type="checkbox" name="product_id" data-bind="attr: {id: 'product_id_' +id, value: id}"/>
+                    <label class="product-detail" data-bind="text: name + ' ' + price, attr: {for: 'product_id_' +id}"></label>
+                </p>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action add-to-cart primary">
+                        <span data-bind="i18n: 'Add to Cart'"></span>
+                    </button>
+                    <button data-role="opc-continue" type="button" class="button action continue primary" data-bind="click: navigateToNextStep">
+                        <span data-bind="i18n: 'Skip & Next'"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</li>
